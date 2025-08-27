@@ -1,53 +1,50 @@
-# sdef-converter
+# Mac Scripting Dictionary Converter
 
-This project provides a Python script (`sdef_to_markdown.py`) to convert Apple's Scripting Definition (.sdef) files into a single, optimized Markdown file. This Markdown output includes a table of contents, YAML front matter for each definition, and structured tables for properties, parameters, and enumerators, making it easier to read and navigate scripting dictionaries.
+This project offers Python scripts to convert Apple's macOS application scripting dictionaries (.sdef, .scriptSuite, and .scriptTerminology files) into well-structured Markdown documentation. This conversion simplifies the process of understanding and navigating complex scripting interfaces, making them more accessible for developers and automation enthusiasts.
+
+The generated Markdown files include:
+- A comprehensive table of contents.
+- YAML front matter for each definition, enabling easy parsing and integration with other tools.
+- Structured tables detailing properties, parameters, and enumerators.
+- Any available sample code, enhancing practical understanding.
 
 ## Usage
 
-To use the script, you need to provide the path to an `.sdef` file and the desired output Markdown file path.
+This project includes two distinct scripts for converting different types of scripting dictionary files.
 
+### `sdef_to_markdown.py`
+
+Converts modern Apple Scripting Definition (`.sdef`) files into Markdown.
+
+**Syntax:**
 ```bash
 python sdef_to_markdown.py <path_to_sdef_file> <output_file.md>
 ```
 
 **Example:**
-
 ```bash
 python sdef_to_markdown.py dictionaries/DEVONthink.sdef DEVONthink_Scripting_Dictionary.md
 ```
 
-### Help Feature
+### `scriptsuite_to_markdown.py`
 
-To display the usage instructions, run:
+Converts older Apple `.scriptSuite` and `.scriptTerminology` files (often found alongside `.sdef` files within application bundles) into Markdown.
 
-```bash
-python sdef_to_markdown.py --help
-```
-
-## `scriptsuite_to_markdown.py`
-
-This script converts Apple's `.scriptSuite` and `.scriptTerminology` files (often found within application bundles alongside `.sdef` files) into a single, structured Markdown file. It extracts commands, classes, properties, and elements, presenting them with descriptions, types, and usage details. This is particularly useful for applications that provide their scripting dictionaries in this format, such as DEVONagent.
-
-### Usage
-
-To use this script, you need to provide the paths to the `.scriptSuite` file, the `.scriptTerminology` file, and the desired output Markdown file path.
-
+**Syntax:**
 ```bash
 python scriptsuite_to_markdown.py <path_to_scriptSuite_file> <path_to_scriptTerminology_file> <output_file.md>
 ```
 
 **Example:**
-
 ```bash
 python scriptsuite_to_markdown.py dictionaries/DEVONagent.scriptSuite dictionaries/DEVONagent.scriptTerminology DEVONagent_Scripting_Dictionary.md
 ```
 
-### Help Feature
+### Getting Help
 
-To display the usage instructions, run:
-
+For detailed usage instructions for either script, use the `--help` flag:
 ```bash
-python scriptsuite_to_markdown.py --help
+python <script_name>.py --help
 ```
 
 ## Finding .sdef Files on macOS
@@ -87,3 +84,15 @@ This script uses standard Python libraries and does not require any external ins
 *   `os`
 *   `re`
 *   `html`
+
+## Keywords
+
+- LLM
+- data preparation
+- scripting dictionary
+- AppleScript
+- JavaScript
+- tool
+- automation
+- metadata
+- documentation
