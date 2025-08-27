@@ -66,15 +66,15 @@ def parse_sdef_to_optimized_markdown(sdef_path, output_file):
                     anchor = generate_anchor(name)
                     toc += f"- [{name}](#{anchor})\n"
 
-                    main_content += f"---\n\n"
                     main_content += f"<a name=\"{anchor}\"></a>\n"
 
                     # YAML Front Matter
                     main_content += f"```yaml\n"
+                    main_content += f"---\n"
                     main_content += f"type: {element_type}\n"
                     main_content += f"name: {name}\n"
                     main_content += f"suite: {suite_name}\n"
-                    main_content += f"---\n\n"
+                    main_content += f"---\n```\n\n"
 
                     main_content += f"## {element_type.replace('-', ' ').title()}: {name}\n\n"
 
